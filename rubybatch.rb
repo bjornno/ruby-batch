@@ -28,15 +28,19 @@ module Filescanner
   end
 
   def filescan(path, regexp, &block)
+    if !File.exist? path
+        FileUtils.mkdir_p(path)
+    end
     while true 
       Dir.foreach(path)  do |filename|  
         if (File.fnmatch(regexp, filename)) #File.directory?(file) && 
-            puts filename+' is not a directory'
             file = startProcess(path,filename)
-            #DB.transaction do
+            if file != nil
+              #DB.transaction do
               yield block [file]
-            #end
-            file.close
+              #end
+              file.close
+            end
             endProcess(path, filename)
         end
       end  
@@ -47,17 +51,6 @@ module Filescanner
 end
 
 include Filescanner
-filescan 'data', 'bjorn*' do
-  |file| 
-  #puts file.to_s + 'jippu'
-  puts '---------------'
-  puts 'reading file'
-  while line = file.gets   
-    puts line   
-  end  
-  puts 'finished reading file'
-  puts '---------------'
-  
-end
+
 
 
