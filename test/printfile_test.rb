@@ -1,6 +1,6 @@
-require '../rubybatch'
+require File.dirname(__FILE__) + '/test_helper.rb'
 
-filescan 'data/from_host/bjorn', 'bjorn*' do
+filescan '/data/from_host/bjorn', 'bjorn*' do
   |file| 
   if file != nil
     puts '---------------'
