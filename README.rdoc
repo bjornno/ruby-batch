@@ -11,14 +11,13 @@ Not multithreaded
 
 == SYNOPSIS:
 
+require 'ruby-batch'
 # Scans for files matching pattern in catalog
-
 filescan '/data/from_host/', 'processfiles*' do |file|   
   # process file logic
 end
 
 # Scans for work in database
-
 dbscan db, 'process_queue' do |work_item|   
   # process work_item logic
 end
