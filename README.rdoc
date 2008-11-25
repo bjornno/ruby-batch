@@ -1,18 +1,26 @@
 = ruby-batch
 
-* FIX (url)
+http://github.com/bjornno/ruby-batch/
 
 == DESCRIPTION:
-
-FIX (describe your package)
+Simple DSL for batch processing
 
 == FEATURES/PROBLEMS:
-
-* FIX (list of features or problems)
+Not very useful yet
+Not multithreaded
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
+# Scans for files matching pattern in catalog
+filescan '/data/from_host/', 'processfiles*' do |file|   
+  # process file logic
+end
+
+# Scans for work in database
+dbscan db, 'process_queue' do |work_item|   
+  # process work_item logic
+end
+
 
 == REQUIREMENTS:
 
@@ -20,13 +28,13 @@ FIX (describe your package)
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+sudo gem install bjornno-ruby-batch
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2008 FIXME full name
+Copyright (c) 2008 Bjørn Nordlund full name
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
