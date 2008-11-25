@@ -1,4 +1,3 @@
-
 require 'rubygems'
 require 'sequel'
 require 'fileutils'
@@ -50,7 +49,24 @@ module Filescanner
 
 end
 
+module Dbscanner
+  def dbscan(db, queue, &block)
+    while true 
+      db.transaction do
+        workset = db[:work_item].where(:processing_state => 0).where(:work_queue_id => queue)
+        work = workset.first
+        if work != nil
+          yield block [work]
+          workset.filter(:id => work[:id]).update(:processing_state => 3)
+        end
+      end
+      sleep 10 
+    end 
+  end
+end
+
 include Filescanner
+include Dbscanner
 
 
 
