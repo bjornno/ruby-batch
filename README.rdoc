@@ -12,11 +12,13 @@ Not multithreaded
 == SYNOPSIS:
 
 # Scans for files matching pattern in catalog
+
 filescan '/data/from_host/', 'processfiles*' do |file|   
   # process file logic
 end
 
 # Scans for work in database
+
 dbscan db, 'process_queue' do |work_item|   
   # process work_item logic
 end
@@ -32,9 +34,8 @@ sudo gem install bjornno-ruby-batch
 
 == LICENSE:
 
-(The MIT License)
 
-Copyright (c) 2008 Bjørn Nordlund full name
+Copyright (c) 2008 Bjørn Nordlund 
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
