@@ -3,13 +3,13 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
  
   s.name = 'ruby-batch'
-  s.version = '0.1.1'
+  s.version = '0.1.2'
   s.date = "2008-11-23"
  
   s.description = "Simple batch frameork DSL"
   s.summary     = "Simple batch frameork DSL"
  
-  s.authors = ["Bj�rn Nordlund"]
+  s.authors = ["Bjørn Nordlund"]
  
   # = MANIFEST =
   s.files = %w[
